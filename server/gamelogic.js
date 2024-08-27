@@ -62,21 +62,19 @@ class GameLogic {
 
     if (pieceType === "P1") {
       if (
-        Math.abs(endRow - startRow) <= 1 &&
-        Math.abs(endCol - startCol) <= 1
+        (Math.abs(endRow - startRow) === 1 && endCol === startCol) ||
+        (Math.abs(endCol - startCol) === 1 && endRow === startRow)
       ) {
         return { row: endRow, col: endCol };
       }
     } else if (pieceType === "H1") {
-      // H1 must move exactly 2 steps in any direction
       if (
-        Math.abs(endRow - startRow) === 2 ||
-        Math.abs(endCol - startCol) === 2
+        (Math.abs(endRow - startRow) === 2 && endCol === startCol) ||
+        (Math.abs(endCol - startCol) === 2 && endRow === startRow)
       ) {
         return { row: endRow, col: endCol };
       }
     } else if (pieceType === "H2") {
-      // H2 must move exactly 2 steps diagonally
       if (
         Math.abs(endRow - startRow) === 2 &&
         Math.abs(endCol - startCol) === 2
