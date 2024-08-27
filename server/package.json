@@ -1,0 +1,13 @@
+{
+  "name": "turn-based-game",
+  "version": "1.0.0",
+  "description": "A turn-based game using WebSockets",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "dependencies": {
+    "nodemon": "^3.1.4",
+    "ws": "^8.8.0"
+  }
+}
