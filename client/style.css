@@ -10,6 +10,18 @@ body {
     text-align: center;
 }
 
+#container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h1 {
+    padding: 10px;
+    color: #444;
+    margin-top: 80px;
+}
+
 h3 {
     color: #444;
     margin-bottom: 10px;
@@ -75,12 +87,13 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 15px;
+    margin-bottom: 25px;
 }
 
 th,
 td {
     padding: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid #140101;
     text-align: center;
 }
 
@@ -108,38 +121,8 @@ td {
     color: #2196f3;
 }
 
-#controls {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
-
-#status {
-    margin-top: 10px;
-    font-size: 18px;
-    font-weight: bold;
-    color: #555;
-}
-
 #moveHistoryTable {
     margin-top: 15px;
     margin-left: 20px;
     border-collapse: collapse;
-}
-
-th,
-td {
-    padding: 10px;
-    border: 1px solid #ddd;
-    text-align: center;
-}
-
-th {
-    background-color: #f5f5f5;
-    color: #555;
-}
-
-td {
-    background-color: #fafafa;
 }

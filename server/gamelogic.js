@@ -44,16 +44,20 @@ class GameLogic {
       );
       if (newPosition && this.isValidPosition(newPosition, piece)) {
         this.executeMove(startRow, startCol, endRow, endCol, piece);
+
         this.moveHistory[currentPlayer].push(
-          `${piece} (${startRow},${startCol}) → (${endRow},${endCol})`
+          `Moved ${piece} from (${startRow}, ${startCol}) to (${endRow}, ${endCol})`
         );
+
         if (this.checkWinCondition()) {
           return { valid: true, winner: currentPlayer };
         }
-        this.turn = 1 - this.turn;
+
+        this.turn = 1 - this.turn; 
         return { valid: true };
       }
     }
+
     return { valid: false, reason: "Invalid move" };
   }
 
@@ -99,10 +103,7 @@ class GameLogic {
 
   executeMove(startRow, startCol, endRow, endCol, piece) {
     const opponent = this.players[1 - this.turn];
-
-    // Eliminate all opponent's pieces in the path
     if (startRow === endRow) {
-      // Horizontal move
       const minCol = Math.min(startCol, endCol);
       const maxCol = Math.max(startCol, endCol);
       for (let col = minCol + 1; col < maxCol; col++) {
@@ -114,7 +115,6 @@ class GameLogic {
         }
       }
     } else if (startCol === endCol) {
-      // Vertical move
       const minRow = Math.min(startRow, endRow);
       const maxRow = Math.max(startRow, endRow);
       for (let row = minRow + 1; row < maxRow; row++) {
@@ -126,7 +126,6 @@ class GameLogic {
         }
       }
     } else if (Math.abs(startRow - endRow) === Math.abs(startCol - endCol)) {
-      // Diagonal move
       const rowIncrement = endRow > startRow ? 1 : -1;
       const colIncrement = endCol > startCol ? 1 : -1;
       let row = startRow + rowIncrement;
@@ -140,7 +139,6 @@ class GameLogic {
       }
     }
 
-    // Move the piece to the new position
     this.board[endRow][endCol] = piece;
     this.board[startRow][startCol] = null;
   }
